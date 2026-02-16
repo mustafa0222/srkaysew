@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>داواکردنی سرکەی سێو - Apple Vinegar Order</title>
+    <meta name="description" content="فۆڕمی داواکردنی سرکەی سێوی سروشتی - باشترین کوالیتی">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <main class="container">
+        <div class="glass-card">
+            <header>
+                <div class="logo-area">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                <h1>داواکردنی سرکەی سێو</h1>
+                <p>سروشتی و بە بۆنی سێوی راستەقینە - باشترین هەڵبژاردن بۆ تەندروستیت</p>
+            </header>
+
+            <form id="orderForm">
+                <div class="input-group">
+                    <label for="fullName">ناوی تەواو</label>
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-user"></i>
+                        <input type="text" id="fullName" placeholder="ناو بنوسە" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone">ژمارەی مۆبایل</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-phone"></i>
+                        <input type="tel" id="phone" placeholder="0750xxxxxxx" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="address">ناونیشان</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <input type="text" id="address" placeholder="ناونیشانی ورد (شار، گەڕەک، کۆڵان)" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="quantity">بڕ (ژمارەی بوتڵ)</label>
+                    <div class="quantity-control">
+                        <button type="button" class="qty-btn" id="decreaseQty"><i class="fa-solid fa-minus"></i></button>
+                        <input type="number" id="quantity" value="1" min="1" readonly>
+                        <button type="button" class="qty-btn" id="increaseQty"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span>ناردن بۆ واتسئەپ</span>
+                    <i class="fa-brands fa-whatsapp"></i>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

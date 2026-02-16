@@ -1,0 +1,299 @@
+:root {
+    --primary-color: #27ae85;
+    --primary-gradient: linear-gradient(135deg, #2ecc71 0%, #1abc9c 100%);
+    --bg-color: #f7f9fc;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --text-color: #2c3e50;
+    --input-bg: #f0f2f5;
+    --shadow-light: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.1);
+    --accent-gold: #f1c40f;
+    --font-family: 'Noto Sans Arabic', sans-serif;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+body {
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+    direction: rtl;
+}
+
+/* Dynamic Background */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, #e8f5e9, transparent),
+                radial-gradient(circle at bottom left, #e0f2f1, transparent);
+    z-index: -1;
+}
+
+.background-animation::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(46, 204, 113, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 20s infinite ease-in-out;
+}
+
+.background-animation::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(26, 188, 156, 0.1) 0%, transparent 60%);
+    border-radius: 50%;
+    animation: float 15s infinite ease-in-out reverse;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(30px, 40px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Card Styling */
+.container {
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    perspective: 1000px;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+    transform-style: preserve-3d;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.logo-area {
+    width: 70px;
+    height: 70px;
+    background: var(--primary-gradient);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 2rem;
+    box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-area::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 100%);
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.8rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+header p {
+    font-size: 1rem;
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+/* Form Styles */
+.input-group {
+    margin-bottom: 1.8rem;
+}
+
+label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #34495e;
+    margin-bottom: 0.8rem;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper i {
+    position: absolute;
+    right: 1.2rem;
+    color: #95a5a6;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+input {
+    width: 100%;
+    padding: 1rem 3rem 1rem 1.2rem;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    background: var(--input-bg);
+    font-size: 1rem;
+    color: var(--text-color);
+    outline: none;
+    transition: var(--transition);
+}
+
+input:focus {
+    background: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.1);
+}
+
+input:focus + i,
+.input-wrapper:focus-within i {
+    color: var(--primary-color);
+}
+
+input::placeholder {
+    color: #bdc3c7;
+}
+
+/* Quantity Controls */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    background: var(--input-bg);
+    border-radius: 12px;
+    padding: 0.5rem;
+    justify-content: space-between;
+}
+
+.qty-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: white;
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.qty-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.05);
+}
+
+.qty-btn:active {
+    transform: scale(0.95);
+}
+
+.quantity-control input {
+    width: 60px;
+    text-align: center;
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+    pointer-events: none; /* Prevent manual typing to ensure control via buttons */
+}
+.quantity-control input:focus {
+  box-shadow: none;
+  border: none;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 1.2rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 14px;
+    background: var(--primary-gradient);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(46, 204, 113, 0.4);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(46, 204, 113, 0.5);
+}
+
+.submit-btn:active {
+    transform: translateY(1px);
+}
+
+.submit-btn i {
+    font-size: 1.4rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+    .glass-card {
+        padding: 2rem 1.5rem;
+    }
+    h1 {
+        font-size: 1.6rem;
+    }
+}
